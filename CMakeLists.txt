@@ -7,5 +7,7 @@ include_directories(include)
 
 add_executable(Akinator
         include/Akinator.h
-        src/Akinator_Func.cpp
-        src/Akinator_Main.cpp)
+        src/Akinator_Game_Func.cpp
+        src/Akinator_Main.cpp
+        src/Akinator_Dump.cpp
+        src/Akinator_Tree_File_Func.cpp)
