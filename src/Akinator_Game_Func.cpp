@@ -1,8 +1,10 @@
 #include "../include/Akinator.h"
 
-int Guessing(tnode* node)
+int Guessing(tnode* node, char* filename)
 {
     char answer[MAX_ANSWER];
+
+    static tnode* root = node;
 
     printf("Ваш персонаж %s?\n", node->data);
 
@@ -12,14 +14,17 @@ int Guessing(tnode* node)
         if (node->left == nullptr)
             printf("Угадал\n");
         else
-            Guessing(node->left);
+            Guessing(node->left, filename);
     } else if (strcmp(answer, "нет") == 0) {
-        if (node->right == nullptr) {
-            printf("Жаль\n");
+        if (node->right == nullptr && IWantSaveTree()) {
             UpgradeTree(node);
+
+            FILE* save_file = fopen(filename, "w");
+            SaveTree(root, save_file);
+            fclose(save_file);
         }
-        else
-            Guessing(node->right);
+        else if (node->right != nullptr)
+            Guessing(node->right, filename);
     } else
         printf("Ответ должен быть \"да\" или \"нет\"\n");
 
@@ -56,20 +61,12 @@ int UpgradeTree(tnode* node)
 int ScanAnswer(char* answer)
 {
     while (true){
-        scanf("%s", answer);
+        ScanPhrase(answer);
 
         if (strcmp(answer, "да") == 0 || strcmp(answer, "нет") == 0){
             break;
         } else
             printf("Ответ должен быть \"да\" или \"нет\"\n");
-    }
-
-    while (true) { //адекватно? (scanf оставляет после себя несчитанные символы)
-        int c = getchar();
-
-        if (c == '\n') {
-            break;
-        }
     }
 
     return 0;

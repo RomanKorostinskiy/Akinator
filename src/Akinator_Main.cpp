@@ -15,13 +15,7 @@ int main(int argc, char* argv[])
     MakeTreeFromFile(root, buffer, size_of_file);
     fclose(save_file);
 
-    Guessing(root);
-
-    if (IWantSaveTree()) {
-        save_file = fopen(filename, "w");
-        SaveTree(root, save_file);
-        fclose(save_file);
-    }
+    Guessing(root, filename);
 
     FreeTree(root);
     free(buffer);

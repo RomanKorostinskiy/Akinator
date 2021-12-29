@@ -12,12 +12,16 @@ typedef struct tnode
     tnode* right;
 }tnode;
 
+enum Returns {
+    UPGRATE_TREE = 1,
+};
+
 const int MAX_ANSWER = 128;
 const int MAX_PHRASE = 512;
 
 //---------Akinator_Game_Func---------
 
-int Guessing(tnode* node);
+int Guessing(tnode* node, char* filename);
 
 int UpgradeTree(tnode* node);
 

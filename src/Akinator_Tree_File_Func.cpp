@@ -77,13 +77,16 @@ bool IWantSaveTree()
 {
     char answer[MAX_ANSWER];
 
-    printf("Сохранить результат?\n");
+    printf("Вашего персонажа ещё нет в базе ответов.\n"
+           "Хотите пополнить базу?\n");
     ScanAnswer(answer);
 
     if (strcmp(answer, "нет") == 0)
         return false;
     else if (strcmp(answer, "да") == 0)
         return true;
+
+    return false;
 }
 
 int FreeTree(tnode* node)
