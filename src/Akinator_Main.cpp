@@ -17,6 +17,8 @@ int main(int argc, char* argv[])
 
     Guessing(root, filename);
 
+    TreeDump(root, __FUNCTION__ );
+
     FreeTree(root);
     free(buffer);
 

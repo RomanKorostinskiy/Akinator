@@ -27,8 +27,45 @@ int MakeGraphDumpTxt(tnode* root, const char* current_function, int dump_cnt)
         exit(-1);
     }
 
+    fprintf(dump_fp, "digraph Dump\n"
+                     "{\n");
+
+    RecursiveTreeDump(root, dump_fp, ROOT, true);
+
+    fprintf(dump_fp, "\n}");
+
     free(dump_filename);
     fclose(dump_fp);
+
+    return 0;
+}
+
+int RecursiveTreeDump(tnode* node, FILE* dump_fp, int parents_num, bool left_node)
+{
+    static int num_of_nodes = -1;
+    num_of_nodes++;
+    int node_number = num_of_nodes;
+
+    if (node->right != nullptr && node->left != nullptr) {
+        fprintf(dump_fp, "\tNode%d [shape = record, label = "
+                         "\" {<data> data: %s | {<yes> yes | <no> no}} \"];\n",
+                         node_number, node->data);
+    } else {
+        fprintf(dump_fp, "\tNode%d [shape = record, label = "
+                         "\" {<data> data: %s | {<yes> yes: NULL | <no> no: NULL}} \"];\n",
+                         node_number, node->data);
+    }
+
+    if (num_of_nodes != 0){
+        if (left_node)
+            fprintf(dump_fp, "\tNode%d:<yes> -> Node%d\n", parents_num, node_number); //нужно сохранять номер родителя
+        else
+            fprintf(dump_fp, "\tNode%d:<no> -> Node%d\n", parents_num, node_number);
+    }
+    if (node->right != nullptr && node->left != nullptr) {
+        RecursiveTreeDump(node->left, dump_fp, node_number, true);
+        RecursiveTreeDump(node->right, dump_fp, node_number, false);
+    }
 
     return 0;
 }
@@ -42,7 +79,7 @@ int MakePngFromTxt(int dump_cnt)
 
     char* png_dump_filename =  DumpFileName(dump_cnt, "png");
 
-    sprintf(txt_to_png, "cd ../ListDump/ && dot %s -T png -o %s", txt_dump_filename, png_dump_filename);
+    sprintf(txt_to_png, "cd ../TreeDump/ && dot %s -T png -o %s", txt_dump_filename, png_dump_filename);
 
     system(txt_to_png);
 

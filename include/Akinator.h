@@ -13,7 +13,7 @@ typedef struct tnode
 }tnode;
 
 enum Returns {
-    UPGRATE_TREE = 1,
+    ROOT = -1,
 };
 
 const int MAX_ANSWER = 128;
@@ -50,5 +50,7 @@ int TreeDump(tnode* root, const char* current_function);
 int MakeGraphDumpTxt(tnode* root, const char* current_function, int dump_cnt);
 
 int MakePngFromTxt(int dump_cnt);
+
+int RecursiveTreeDump(tnode* node, FILE* dump_fp, int parents_num, bool left_node);
 
 char* DumpFileName(int dump_cnt, const char* format);
