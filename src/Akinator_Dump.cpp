@@ -48,11 +48,11 @@ int RecursiveTreeDump(tnode* node, FILE* dump_fp, int parents_num, bool left_nod
 
     if (node->right != nullptr && node->left != nullptr) {
         fprintf(dump_fp, "\tNode%d [shape = record, label = "
-                         "\" {<data> data: %s | {<yes> yes | <no> no}} \"];\n",
+                         "\" {<data> data: %s? | {<yes> да | <no> нет}} \"];\n",
                          node_number, node->data);
     } else {
         fprintf(dump_fp, "\tNode%d [shape = record, label = "
-                         "\" {<data> data: %s | {<yes> yes: NULL | <no> no: NULL}} \"];\n",
+                         "\" {<data> data: %s | {<yes> NULL | <no> NULL}} \"];\n",
                          node_number, node->data);
     }
 

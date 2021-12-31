@@ -1,37 +1,37 @@
 digraph Dump
 {
-	Node0 [shape = record, label = " {<data> data: животное | {<yes> yes | <no> no}} "];
-	Node1 [shape = record, label = " {<data> data: полосатый | {<yes> yes | <no> no}} "];
+	Node0 [shape = record, label = " {<data> data: животное? | {<yes> да | <no> нет}} "];
+	Node1 [shape = record, label = " {<data> data: полосатый? | {<yes> да | <no> нет}} "];
 	Node0:<yes> -> Node1
-	Node2 [shape = record, label = " {<data> data: тигр | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node2 [shape = record, label = " {<data> data: тигр | {<yes> NULL | <no> NULL}} "];
 	Node1:<yes> -> Node2
-	Node3 [shape = record, label = " {<data> data: лает | {<yes> yes | <no> no}} "];
+	Node3 [shape = record, label = " {<data> data: лает? | {<yes> да | <no> нет}} "];
 	Node1:<no> -> Node3
-	Node4 [shape = record, label = " {<data> data: сын собаки | {<yes> yes | <no> no}} "];
+	Node4 [shape = record, label = " {<data> data: сын собаки? | {<yes> да | <no> нет}} "];
 	Node3:<yes> -> Node4
-	Node5 [shape = record, label = " {<data> data: щенок | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node5 [shape = record, label = " {<data> data: щенок | {<yes> NULL | <no> NULL}} "];
 	Node4:<yes> -> Node5
-	Node6 [shape = record, label = " {<data> data: собака | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node6 [shape = record, label = " {<data> data: собака | {<yes> NULL | <no> NULL}} "];
 	Node4:<no> -> Node6
-	Node7 [shape = record, label = " {<data> data: ест морковку | {<yes> yes | <no> no}} "];
+	Node7 [shape = record, label = " {<data> data: ест морковку? | {<yes> да | <no> нет}} "];
 	Node3:<no> -> Node7
-	Node8 [shape = record, label = " {<data> data: кролик | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node8 [shape = record, label = " {<data> data: кролик | {<yes> NULL | <no> NULL}} "];
 	Node7:<yes> -> Node8
-	Node9 [shape = record, label = " {<data> data: лев | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node9 [shape = record, label = " {<data> data: лев | {<yes> NULL | <no> NULL}} "];
 	Node7:<no> -> Node9
-	Node10 [shape = record, label = " {<data> data: едет | {<yes> yes | <no> no}} "];
+	Node10 [shape = record, label = " {<data> data: едет? | {<yes> да | <no> нет}} "];
 	Node0:<no> -> Node10
-	Node11 [shape = record, label = " {<data> data: трактор | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node11 [shape = record, label = " {<data> data: трактор | {<yes> NULL | <no> NULL}} "];
 	Node10:<yes> -> Node11
-	Node12 [shape = record, label = " {<data> data: съедобный | {<yes> yes | <no> no}} "];
+	Node12 [shape = record, label = " {<data> data: съедобный? | {<yes> да | <no> нет}} "];
 	Node10:<no> -> Node12
-	Node13 [shape = record, label = " {<data> data: бутерброд | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node13 [shape = record, label = " {<data> data: бутерброд | {<yes> NULL | <no> NULL}} "];
 	Node12:<yes> -> Node13
-	Node14 [shape = record, label = " {<data> data: подходит для готовки еды | {<yes> yes | <no> no}} "];
+	Node14 [shape = record, label = " {<data> data: подходит для готовки еды? | {<yes> да | <no> нет}} "];
 	Node12:<no> -> Node14
-	Node15 [shape = record, label = " {<data> data: кастрюля | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node15 [shape = record, label = " {<data> data: кастрюля | {<yes> NULL | <no> NULL}} "];
 	Node14:<yes> -> Node15
-	Node16 [shape = record, label = " {<data> data: дом | {<yes> yes: NULL | <no> no: NULL}} "];
+	Node16 [shape = record, label = " {<data> data: дом | {<yes> NULL | <no> NULL}} "];
 	Node14:<no> -> Node16
 
 }
