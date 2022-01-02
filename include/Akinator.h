@@ -13,7 +13,7 @@ typedef struct tnode
     tnode* right;
 }tnode;
 
-enum Returns {
+enum Constants {
     ROOT = -1,
 };
 
