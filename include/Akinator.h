@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define TREE_DUMP
 typedef struct tnode
 {
     char* data;

@@ -1,0 +1,11 @@
+digraph Dump
+{
+	"After function: UpgradeTree"
+
+	Node0 [shape = record, label = " {<data> data: птица? | {<yes> да | <no> нет}} "];
+	Node1 [shape = record, label = " {<data> data: пингвин | {<yes> NULL | <no> NULL}} "];
+	Node0:<yes> -> Node1
+	Node2 [shape = record, label = " {<data> data: лев | {<yes> NULL | <no> NULL}} "];
+	Node0:<no> -> Node2
+
+}

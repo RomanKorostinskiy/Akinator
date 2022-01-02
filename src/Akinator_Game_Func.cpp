@@ -39,21 +39,25 @@ int UpgradeTree(tnode* node)
     node->left = (tnode*)calloc(1, sizeof(tnode));
     node->right = (tnode*)calloc(1, sizeof(tnode));
 
-    node->right->data = node->data; //нет
+    node->right->data = node->data;
 
     printf("Что вы загадали(не более 256 символов)?\n");
     ScanPhrase(array);
 
     len = strlen(array);
     node->left->data = (char*)calloc(len + 1, sizeof(char));
-    strcpy(node->left->data, array); //да
+    strcpy(node->left->data, array);
 
     printf("Чем %s отличается от %s(не более 256 символов)?\n", node->left->data, node->right->data);
     ScanPhrase(array);
 
     len = strlen(array);
     node->data = (char*)calloc(len + 1, sizeof(char));
-    strcpy(node->data, array); //признак
+    strcpy(node->data, array);
+
+#ifdef TREE_DUMP
+    TreeDump(node, __FUNCTION__ );
+#endif
 
     return 0;
 }

@@ -30,6 +30,8 @@ int MakeGraphDumpTxt(tnode* root, const char* current_function, int dump_cnt)
     fprintf(dump_fp, "digraph Dump\n"
                      "{\n");
 
+    fprintf(dump_fp, "\t\"After function: %s\"\n\n", current_function);
+
     RecursiveTreeDump(root, dump_fp, ROOT, true);
 
     fprintf(dump_fp, "\n}");
@@ -43,6 +45,8 @@ int MakeGraphDumpTxt(tnode* root, const char* current_function, int dump_cnt)
 int RecursiveTreeDump(tnode* node, FILE* dump_fp, int parents_num, bool left_node)
 {
     static int num_of_nodes = -1;
+    if (parents_num == ROOT)
+        num_of_nodes = -1;
     num_of_nodes++;
     int node_number = num_of_nodes;
 

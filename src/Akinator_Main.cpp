@@ -15,9 +15,15 @@ int main(int argc, char* argv[])
     MakeTreeFromFile(root, buffer, size_of_file);
     fclose(save_file);
 
+#ifdef TREE_DUMP
+    TreeDump(root, "MakeTreeFromFile" );
+#endif
+
     Guessing(root, filename);
 
+#ifdef TREE_DUMP
     TreeDump(root, __FUNCTION__ );
+#endif
 
     TreeDtor(root);
     free(buffer);

@@ -1,5 +1,7 @@
 digraph Dump
 {
+	"After function: MakeTreeFromFile"
+
 	Node0 [shape = record, label = " {<data> data: животное? | {<yes> да | <no> нет}} "];
 	Node1 [shape = record, label = " {<data> data: полосатый? | {<yes> да | <no> нет}} "];
 	Node0:<yes> -> Node1
@@ -25,13 +27,17 @@ digraph Dump
 	Node10:<yes> -> Node11
 	Node12 [shape = record, label = " {<data> data: съедобный? | {<yes> да | <no> нет}} "];
 	Node10:<no> -> Node12
-	Node13 [shape = record, label = " {<data> data: бутерброд | {<yes> NULL | <no> NULL}} "];
+	Node13 [shape = record, label = " {<data> data: состоит из фарша? | {<yes> да | <no> нет}} "];
 	Node12:<yes> -> Node13
-	Node14 [shape = record, label = " {<data> data: подходит для готовки еды? | {<yes> да | <no> нет}} "];
-	Node12:<no> -> Node14
-	Node15 [shape = record, label = " {<data> data: кастрюля | {<yes> NULL | <no> NULL}} "];
-	Node14:<yes> -> Node15
-	Node16 [shape = record, label = " {<data> data: дом | {<yes> NULL | <no> NULL}} "];
-	Node14:<no> -> Node16
+	Node14 [shape = record, label = " {<data> data: котлета | {<yes> NULL | <no> NULL}} "];
+	Node13:<yes> -> Node14
+	Node15 [shape = record, label = " {<data> data: бутерброд | {<yes> NULL | <no> NULL}} "];
+	Node13:<no> -> Node15
+	Node16 [shape = record, label = " {<data> data: подходит для готовки еды? | {<yes> да | <no> нет}} "];
+	Node12:<no> -> Node16
+	Node17 [shape = record, label = " {<data> data: кастрюля | {<yes> NULL | <no> NULL}} "];
+	Node16:<yes> -> Node17
+	Node18 [shape = record, label = " {<data> data: дом | {<yes> NULL | <no> NULL}} "];
+	Node16:<no> -> Node18
 
 }

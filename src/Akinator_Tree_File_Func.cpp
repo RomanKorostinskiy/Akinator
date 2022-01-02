@@ -25,7 +25,7 @@ int MakeTreeFromFile(tnode* node, char* buffer, size_t size)
 {
     static int i = 0;
 
-    if (buffer[i] == '{') {
+    if (buffer[i] == '{') { // {...
         i++;
 
         int len = 0;
@@ -43,7 +43,7 @@ int MakeTreeFromFile(tnode* node, char* buffer, size_t size)
         i = i + len;
     }
 
-    if (buffer[i] == '{') {
+    if (buffer[i] == '{') { // {...{...
         node->left = (tnode*)calloc(1, sizeof(tnode));
         MakeTreeFromFile(node->left, buffer, size);
 
@@ -51,7 +51,7 @@ int MakeTreeFromFile(tnode* node, char* buffer, size_t size)
         MakeTreeFromFile(node->right, buffer, size);
     }
 
-    if (buffer[i] == '}') {
+    if (buffer[i] == '}') { // {...}
         i++;
         return 0;
     }

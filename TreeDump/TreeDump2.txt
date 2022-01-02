@@ -1,0 +1,47 @@
+digraph Dump
+{
+	"After function: main"
+
+	Node0 [shape = record, label = " {<data> data: животное? | {<yes> да | <no> нет}} "];
+	Node1 [shape = record, label = " {<data> data: полосатый? | {<yes> да | <no> нет}} "];
+	Node0:<yes> -> Node1
+	Node2 [shape = record, label = " {<data> data: тигр | {<yes> NULL | <no> NULL}} "];
+	Node1:<yes> -> Node2
+	Node3 [shape = record, label = " {<data> data: лает? | {<yes> да | <no> нет}} "];
+	Node1:<no> -> Node3
+	Node4 [shape = record, label = " {<data> data: сын собаки? | {<yes> да | <no> нет}} "];
+	Node3:<yes> -> Node4
+	Node5 [shape = record, label = " {<data> data: щенок | {<yes> NULL | <no> NULL}} "];
+	Node4:<yes> -> Node5
+	Node6 [shape = record, label = " {<data> data: собака | {<yes> NULL | <no> NULL}} "];
+	Node4:<no> -> Node6
+	Node7 [shape = record, label = " {<data> data: ест морковку? | {<yes> да | <no> нет}} "];
+	Node3:<no> -> Node7
+	Node8 [shape = record, label = " {<data> data: кролик | {<yes> NULL | <no> NULL}} "];
+	Node7:<yes> -> Node8
+	Node9 [shape = record, label = " {<data> data: птица? | {<yes> да | <no> нет}} "];
+	Node7:<no> -> Node9
+	Node10 [shape = record, label = " {<data> data: пингвин | {<yes> NULL | <no> NULL}} "];
+	Node9:<yes> -> Node10
+	Node11 [shape = record, label = " {<data> data: лев | {<yes> NULL | <no> NULL}} "];
+	Node9:<no> -> Node11
+	Node12 [shape = record, label = " {<data> data: едет? | {<yes> да | <no> нет}} "];
+	Node0:<no> -> Node12
+	Node13 [shape = record, label = " {<data> data: трактор | {<yes> NULL | <no> NULL}} "];
+	Node12:<yes> -> Node13
+	Node14 [shape = record, label = " {<data> data: съедобный? | {<yes> да | <no> нет}} "];
+	Node12:<no> -> Node14
+	Node15 [shape = record, label = " {<data> data: состоит из фарша? | {<yes> да | <no> нет}} "];
+	Node14:<yes> -> Node15
+	Node16 [shape = record, label = " {<data> data: котлета | {<yes> NULL | <no> NULL}} "];
+	Node15:<yes> -> Node16
+	Node17 [shape = record, label = " {<data> data: бутерброд | {<yes> NULL | <no> NULL}} "];
+	Node15:<no> -> Node17
+	Node18 [shape = record, label = " {<data> data: подходит для готовки еды? | {<yes> да | <no> нет}} "];
+	Node14:<no> -> Node18
+	Node19 [shape = record, label = " {<data> data: кастрюля | {<yes> NULL | <no> NULL}} "];
+	Node18:<yes> -> Node19
+	Node20 [shape = record, label = " {<data> data: дом | {<yes> NULL | <no> NULL}} "];
+	Node18:<no> -> Node20
+
+}
