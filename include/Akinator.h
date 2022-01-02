@@ -41,7 +41,7 @@ int SaveTree(tnode* node, FILE* fp);
 
 bool IWantSaveTree();
 
-int FreeTree(tnode* node);
+int TreeDtor(tnode* node);
 
 //---------Akinator_Dump---------
 

@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 
     TreeDump(root, __FUNCTION__ );
 
-    FreeTree(root);
+    TreeDtor(root);
     free(buffer);
 
     return 0;

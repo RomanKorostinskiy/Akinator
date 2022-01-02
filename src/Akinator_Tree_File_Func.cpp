@@ -89,13 +89,13 @@ bool IWantSaveTree()
     return false;
 }
 
-int FreeTree(tnode* node)
+int TreeDtor(tnode* node)
 {
     free(node->data);
 
     if (node->left != nullptr && node->right != nullptr) {
-        FreeTree(node->left);
-        FreeTree(node->right);
+        TreeDtor(node->left);
+        TreeDtor(node->right);
     }
 
     free(node);
